@@ -1,0 +1,28 @@
+version: "3.8"
+
+services:
+  client:
+    depends_on:
+      - server
+    build: ./client
+    ports:
+      - 8080:8080
+
+  server:
+    depends_on:
+      - db
+    build: ./server
+    ports:
+      - 3000:3000
+    env_file:
+      - ./server/.env
+
+    db:
+      image: mongo:4.0-xenial
+      ports:
+        - 27017:27017
+      volumes:
+        - chat:/data/db
+
+volumes:
+  chat:

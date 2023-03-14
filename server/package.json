@@ -4,6 +4,7 @@
   "description": "win95 chat server",
   "main": "app.js",
   "scripts": {
+    "db:up": "migrate-mongo up",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js",
     "dev": "nodemon app.js"
