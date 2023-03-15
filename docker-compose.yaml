@@ -16,13 +16,15 @@ services:
       - 3000:3000
     env_file:
       - ./server/.env
+    volumes:
+       - chat:/data/db
 
-    db:
-      image: mongo:4.0-xenial
-      ports:
-        - 27017:27017
-      volumes:
-        - chat:/data/db
+  db:
+    image: mongo
+    ports:
+      - 27017:27017
+    volumes:
+      - chat:/data/db
 
 volumes:
   chat:

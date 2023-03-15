@@ -36,7 +36,10 @@ const userControllers = {
           status: "error",
           message: "El nombre de ususario introducido ya se encuentra en uso",
         });
-      throw error;
+        res.status(401).send({
+          status: "error",
+          message: err.message,
+        });
     }
   },
 
